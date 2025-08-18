@@ -242,7 +242,14 @@ export default function Home() {
                   size="small"
                   href="/chi-war"
                 >
-                  Read More
+                  Project Details
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  href="/rpg-management-system"
+                >
+                  Technical Article
                 </Button>
               </Box>
             </Box>
