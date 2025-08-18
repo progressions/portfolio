@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Typography, Box, Button, Avatar } from '@mui/material';
-import { GitHub, LinkedIn, Email, Person, Build, Code, ContactMail, Work, AccountTree } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email, Person, Build, Code, ContactMail, Work, AccountTree, Article, Info } from '@mui/icons-material';
 import Image from 'next/image';
 import Module from './components/Module';
 
@@ -224,6 +224,7 @@ export default function Home() {
                 <Button
                   variant="outlined"
                   size="small"
+                  startIcon={<GitHub />}
                   href="https://github.com/progressions/shot-counter"
                   target="_blank"
                 >
@@ -232,6 +233,7 @@ export default function Home() {
                 <Button
                   variant="outlined"
                   size="small"
+                  startIcon={<GitHub />}
                   href="https://github.com/progressions/shot-client-next"
                   target="_blank"
                 >
@@ -240,6 +242,7 @@ export default function Home() {
                 <Button
                   variant="contained"
                   size="small"
+                  startIcon={<Info />}
                   href="/chi-war"
                 >
                   Project Details
@@ -247,6 +250,7 @@ export default function Home() {
                 <Button
                   variant="outlined"
                   size="small"
+                  startIcon={<Article />}
                   href="/rpg-management-system"
                 >
                   Technical Article

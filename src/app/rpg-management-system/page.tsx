@@ -391,20 +391,20 @@ end`}
 
       <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mb: 4 }}>
         <Button
-          variant="contained"
+          variant="outlined"
           startIcon={<GitHub />}
           href="https://github.com/progressions/shot-counter"
           target="_blank"
         >
-          Backend Repository
+          Backend Code
         </Button>
         <Button
-          variant="contained"
+          variant="outlined"
           startIcon={<GitHub />}
           href="https://github.com/progressions/shot-client-next"
           target="_blank"
         >
-          Frontend Repository
+          Frontend Code
         </Button>
       </Box>
     </Container>
