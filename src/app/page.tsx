@@ -1,8 +1,9 @@
 'use client';
 
-import { Container, Typography, Box, Paper, Button, Avatar } from '@mui/material';
+import { Container, Typography, Box, Button, Avatar } from '@mui/material';
 import { GitHub, LinkedIn, Email, Person, Build, Code, ContactMail, Work, AccountTree } from '@mui/icons-material';
 import Image from 'next/image';
+import Module from './components/Module';
 
 export default function Home() {
   return (
@@ -59,7 +60,7 @@ export default function Home() {
       </Box>
 
       <Box sx={{ display: 'grid', gap: 4, gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' } }}>
-        <Paper elevation={2} sx={{ p: 3 }}>
+        <Module>
           <Typography variant="h6" component="h3" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Person sx={{ color: '#4CAF50' }} />
             About Me
@@ -70,9 +71,9 @@ export default function Home() {
             frameworks, delivering solutions for e-commerce and education platforms. Former co-founder 
             with experience scaling applications for millions of users.
           </Typography>
-        </Paper>
+        </Module>
 
-        <Paper elevation={2} sx={{ p: 3 }}>
+        <Module>
           <Typography variant="h6" component="h3" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Build sx={{ color: '#FF9800' }} />
             Skills
@@ -84,9 +85,9 @@ export default function Home() {
             <strong>AI Integration:</strong> Grok API, prompt engineering, content generation<br/>
             <strong>Methodologies:</strong> Agile, TDD, CI/CD, RESTful API design
           </Typography>
-        </Paper>
+        </Module>
 
-        <Paper elevation={2} sx={{ p: 3 }}>
+        <Module>
           <Typography variant="h6" component="h3" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Code sx={{ color: '#E91E63' }} />
             Recent Projects
@@ -97,9 +98,9 @@ export default function Home() {
             • <a href="https://github.com/progressions/shot-client-next" target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>Frontend (shot-client-next)</a> - Next.js TypeScript client<br/>
             Full-stack app for managing Feng Shui 2 RPG games.
           </Typography>
-        </Paper>
+        </Module>
 
-        <Paper elevation={2} sx={{ p: 3 }}>
+        <Module>
           <Typography variant="h6" component="h3" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <ContactMail sx={{ color: '#9C27B0' }} />
             Get In Touch
@@ -108,7 +109,7 @@ export default function Home() {
             I'm always interested in new opportunities and collaborations. 
             Feel free to reach out if you'd like to connect!
           </Typography>
-        </Paper>
+        </Module>
       </Box>
 
       <Box sx={{ mt: 6 }}>
@@ -118,7 +119,7 @@ export default function Home() {
         </Typography>
         
         <Box sx={{ display: 'grid', gap: 4, gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr 1fr' } }}>
-          <Paper elevation={2} sx={{ p: 3 }}>
+          <Module>
             <Typography variant="h6" component="h3" gutterBottom color="primary">
               Babylist, Inc
             </Typography>
@@ -130,9 +131,9 @@ export default function Home() {
               • Integrated payment and shipping APIs, reducing checkout errors by 15%<br/>
               • Automated 20 hours of weekly manual processes with internal tools
             </Typography>
-          </Paper>
+          </Module>
 
-          <Paper elevation={2} sx={{ p: 3 }}>
+          <Module>
             <Typography variant="h6" component="h3" gutterBottom color="primary">
               Teachable, Inc
             </Typography>
@@ -144,9 +145,9 @@ export default function Home() {
               • Built React-based staff app, cutting content moderation time by 35%<br/>
               • Enhanced course search with ElasticSearch, improving accuracy by 20%
             </Typography>
-          </Paper>
+          </Module>
 
-          <Paper elevation={2} sx={{ p: 3 }}>
+          <Module>
             <Typography variant="h6" component="h3" gutterBottom color="primary">
               The Honest Company
             </Typography>
@@ -158,7 +159,7 @@ export default function Home() {
               • Optimized Salesforce Marketing Cloud campaigns, raising open rates by 18%<br/>
               • Refactored legacy code, improving application performance by 15%
             </Typography>
-          </Paper>
+          </Module>
         </Box>
       </Box>
 
@@ -168,7 +169,7 @@ export default function Home() {
           Personal Projects
         </Typography>
         
-        <Paper elevation={2} sx={{ p: 4, position: 'relative' }}>
+        <Module sx={{ p: 4, position: 'relative' }}>
           <Box sx={{ 
             float: 'left', 
             mr: 3, 
@@ -253,7 +254,7 @@ export default function Home() {
               and domain-specific problem solving with modern prompt engineering techniques.
             </Typography>
           </Box>
-        </Paper>
+        </Module>
       </Box>
     </Container>
   );

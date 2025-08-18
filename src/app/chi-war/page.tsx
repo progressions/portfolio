@@ -1,9 +1,10 @@
 'use client';
 
-import { Container, Typography, Box, Paper, Button, Chip } from '@mui/material';
+import { Container, Typography, Box, Button, Chip } from '@mui/material';
 import { ArrowBack, GitHub, Launch, AccountTree } from '@mui/icons-material';
 import Image from 'next/image';
 import Link from 'next/link';
+import Module from '../components/Module';
 
 export default function ChiWarPage() {
   return (
@@ -32,19 +33,20 @@ export default function ChiWarPage() {
               Chi War
             </Typography>
             <Typography variant="h6" color="text.secondary" gutterBottom>
-              Real-time RPG Management System for Feng Shui 2
+              Real-time RPG Management<Box component="span" sx={{ display: { xs: 'block', sm: 'inline' } }}> System for Feng Shui 2</Box>
             </Typography>
-            <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
+            <Box sx={{ display: 'flex', gap: 1, mt: 2, flexWrap: 'wrap' }}>
               <Chip label="Ruby on Rails" color="primary" size="small" />
               <Chip label="Next.js" color="primary" size="small" />
               <Chip label="TypeScript" color="primary" size="small" />
               <Chip label="WebSockets" color="primary" size="small" />
+              <Chip label="AI Integration" color="primary" size="small" />
             </Box>
           </Box>
         </Box>
       </Box>
 
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
+      <Module sx={{ p: 4, mb: 4 }}>
         <Typography variant="h4" component="h2" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <AccountTree sx={{ color: '#00BCD4' }} />
           Project Overview
@@ -92,9 +94,9 @@ export default function ChiWarPage() {
           that's difficult to track manually, especially when playing remotely. Chi War automates this complex 
           system while maintaining the excitement and spontaneity that makes Feng Shui 2 special.
         </Typography>
-      </Paper>
+      </Module>
 
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
+      <Module sx={{ p: 4, mb: 4 }}>
         <Typography variant="h4" component="h2" gutterBottom>
           The Technical Challenge
         </Typography>
@@ -144,18 +146,6 @@ export default function ChiWarPage() {
         </Typography>
 
         <Box sx={{ my: 4 }}>
-          <Box sx={{ mb: 4 }}>
-            <Image
-              src="/chi-war-fighters-modal.png"
-              alt="Chi War Fighters Modal"
-              width={800}
-              height={600}
-              style={{ width: '100%', maxWidth: '800px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', display: 'block', mx: 'auto' }}
-            />
-            <Typography variant="caption" display="block" sx={{ mt: 1, textAlign: 'center', fontStyle: 'italic' }}>
-              Character selection modal with filtering by type, faction, and archetype
-            </Typography>
-          </Box>
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
             <Box sx={{ maxWidth: '200px' }}>
               <Image
@@ -183,9 +173,9 @@ export default function ChiWarPage() {
             </Box>
           </Box>
         </Box>
-      </Paper>
+      </Module>
 
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
+      <Module sx={{ p: 4, mb: 4 }}>
         <Typography variant="h4" component="h2" gutterBottom>
           Technical Architecture
         </Typography>
@@ -218,9 +208,151 @@ export default function ChiWarPage() {
           nature of Feng Shui 2 characters while maintaining referential integrity. Careful indexing ensures 
           fast queries even for games with extensive action histories.
         </Typography>
-      </Paper>
+      </Module>
 
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
+      <Module sx={{ p: 4, mb: 4 }}>
+        <Typography variant="h4" component="h2" gutterBottom>
+          Development Challenge: Generic Filter System
+        </Typography>
+
+        <Typography variant="body1" paragraph>
+          One of the most interesting technical challenges in Chi War was creating a reusable filter system 
+          that could work across all different entity types (characters, fights, campaigns, etc.) without 
+          code duplication. The solution was a generic filter component that dynamically renders different 
+          input types based on configuration.
+        </Typography>
+
+        <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+          The Problem
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Each entity type in Chi War needed filtering capabilities, but they all had different field types:
+          autocomplete dropdowns for related entities, string searches for names, static options for 
+          predefined values, and free-text search. Writing separate filter components for each would 
+          have led to significant code duplication and maintenance overhead.
+        </Typography>
+
+        <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+          The Solution: GenericFilter Component
+        </Typography>
+        <Typography variant="body1" paragraph>
+          The GenericFilter component uses TypeScript generics and configuration objects to dynamically 
+          render the appropriate input types. Here's the core implementation:
+        </Typography>
+
+        <Box sx={{ 
+          backgroundColor: 'rgba(0, 0, 0, 0.4)', 
+          borderRadius: 1, 
+          p: 2, 
+          mb: 3,
+          overflow: 'auto',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
+        }}>
+          <Typography variant="body2" component="pre" sx={{ 
+            fontFamily: 'monospace', 
+            fontSize: '0.8rem',
+            lineHeight: 1.4,
+            margin: 0,
+            whiteSpace: 'pre-wrap'
+          }}>
+{`interface FilterFieldConfig {
+  name: string
+  type: "entity" | "string" | "static" | "search"
+  staticOptions?: string[]
+  allowNone?: boolean
+  responseKey?: string
+  displayName?: string
+}
+
+export function GenericFilter({
+  entity,
+  formState,
+  onChange,
+  onFiltersUpdate,
+  omit = [],
+  excludeIds = [],
+}: GenericFilterProps) {
+  const config = filterConfigs[entity]
+  
+  const renderField = (field: FilterFieldConfig) => {
+    if (field.type === "static") {
+      const Autocomplete = createStringAutocomplete(displayName)
+      return (
+        <Autocomplete
+          value={filters?.[field.name] as string}
+          onChange={newValue => changeFilter(field.name, newValue)}
+          records={field.staticOptions || []}
+          allowNone={field.allowNone ?? true}
+        />
+      )
+    }
+    
+    if (field.type === "entity") {
+      const Autocomplete = createAutocomplete(entityName)
+      return (
+        <Autocomplete
+          value={filters?.[field.name] as AutocompleteOption | null}
+          onChange={newValue => 
+            changeFilter(field.name + "_id", newValue, true)
+          }
+          records={data[responseKey] || []}
+          excludeIds={isPrimaryField ? excludeIds : undefined}
+        />
+      )
+    }
+    // ... other field types
+  }
+  
+  return (
+    <Stack direction="row" spacing={1} alignItems="center">
+      {config.fields.map(field => renderField(field))}
+    </Stack>
+  )
+}`}
+          </Typography>
+        </Box>
+
+        <Typography variant="h6" gutterBottom>
+          Key Benefits
+        </Typography>
+        <Typography variant="body1" paragraph>
+          • <strong>Type Safety:</strong> TypeScript ensures configuration objects match expected interfaces<br/>
+          • <strong>Reusability:</strong> One component handles filtering for characters, fights, campaigns, and more<br/>
+          • <strong>Maintainability:</strong> Changes to filter logic only need to be made in one place<br/>
+          • <strong>Flexibility:</strong> New entity types can be added with just configuration, no new components<br/>
+          • <strong>Consistency:</strong> All filters look and behave the same across the application
+        </Typography>
+
+        <Typography variant="body1" paragraph>
+          This pattern demonstrates how thoughtful abstraction can solve real-world development challenges 
+          while maintaining code quality and developer experience. The component has saved countless hours 
+          of development time and ensures consistent user experience across Chi War's interface.
+        </Typography>
+
+        <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+          Real-World Implementation
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Here's the GenericFilter component in action, powering the character selection interface. 
+          Notice how it seamlessly combines different filter types: entity dropdowns for faction and archetype, 
+          string search for names, and static options for character types.
+        </Typography>
+
+        <Box sx={{ my: 4 }}>
+          <Image
+            src="/chi-war-fighters-modal.png"
+            alt="Chi War Character Selection with Generic Filters"
+            width={800}
+            height={600}
+            style={{ width: '100%', maxWidth: '800px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', display: 'block', mx: 'auto' }}
+          />
+          <Typography variant="caption" display="block" sx={{ mt: 1, textAlign: 'center', fontStyle: 'italic' }}>
+            Character selection modal demonstrating the GenericFilter system with multiple filter types working together
+          </Typography>
+        </Box>
+      </Module>
+
+      <Module sx={{ p: 4, mb: 4 }}>
         <Typography variant="h4" component="h2" gutterBottom>
           AI Integration and Content Generation
         </Typography>
@@ -349,9 +481,9 @@ export default function ChiWarPage() {
           generated statistics against game rules and provides fallbacks for API failures, maintaining 
           game flow even when external services are unavailable.
         </Typography>
-      </Paper>
+      </Module>
 
-      <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
+      <Module sx={{ p: 4, mb: 4 }}>
         <Typography variant="h4" component="h2" gutterBottom>
           Impact and Lessons Learned
         </Typography>
@@ -381,7 +513,7 @@ export default function ChiWarPage() {
           game masters to focus on storytelling and character development – the heart of what makes 
           tabletop RPGs special.
         </Typography>
-      </Paper>
+      </Module>
 
       <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mb: 4 }}>
         <Button
