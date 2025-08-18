@@ -81,7 +81,8 @@ export default function Home() {
             <strong>Languages:</strong> Ruby, JavaScript, TypeScript, CSS/SCSS, SQL<br/>
             <strong>Frameworks:</strong> Ruby on Rails (6+), React, Next.js, Material UI<br/>
             <strong>Tools:</strong> PostgreSQL, MySQL, Git, Docker, ElasticSearch<br/>
-            <strong>Methodologies:</strong> Agile, TDD, CI/CD, RESTful API design, AI prompt engineering
+            <strong>AI Integration:</strong> Grok API, prompt engineering, content generation<br/>
+            <strong>Methodologies:</strong> Agile, TDD, CI/CD, RESTful API design
           </Typography>
         </Paper>
 
@@ -200,6 +201,7 @@ export default function Home() {
               </Typography>
               <Typography variant="body2">
                 • <strong>Real-time synchronization:</strong> WebSocket connections ensure all players see live updates to character stats, initiative order, and game state<br/>
+                • <strong>AI content generation:</strong> Grok API integration for custom character portraits, villains, and monsters with full game statistics<br/>
                 • <strong>Shot counter system:</strong> Implemented Feng Shui 2's unique turn-based mechanics and action sequences<br/>
                 • <strong>Multi-player support:</strong> Handles concurrent player actions while maintaining data consistency<br/>
                 • <strong>Remote gameplay:</strong> Intuitive web interface designed specifically for managing complex RPG mechanics online
@@ -211,9 +213,10 @@ export default function Home() {
                 Tech Stack
               </Typography>
               <Typography variant="body2" sx={{ mb: 3 }}>
-                <strong>Backend:</strong> Ruby on Rails + WebSockets<br/>
+                <strong>Backend:</strong> Ruby on Rails + WebSockets + Grok API<br/>
                 <strong>Frontend:</strong> Next.js + TypeScript + Material UI<br/>
-                <strong>Database:</strong> PostgreSQL
+                <strong>Database:</strong> PostgreSQL<br/>
+                <strong>AI Integration:</strong> Prompt engineering + content generation
               </Typography>
 
               <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
@@ -233,13 +236,21 @@ export default function Home() {
                 >
                   Frontend Code
                 </Button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  href="/chi-war"
+                >
+                  Read More
+                </Button>
               </Box>
             </Box>
           </Box>
 
           <Box sx={{ mt: 3, p: 2, backgroundColor: 'background.paper', borderRadius: 1, border: '1px solid', borderColor: 'divider' }}>
             <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-              Demonstrates full-stack development skills, real-time communication patterns, and domain-specific problem solving.
+              Demonstrates full-stack development skills, real-time communication patterns, AI API integration, 
+              and domain-specific problem solving with modern prompt engineering techniques.
             </Typography>
           </Box>
         </Paper>
