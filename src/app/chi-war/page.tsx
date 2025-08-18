@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Typography, Box, Button, Chip } from '@mui/material';
-import { ArrowBack, GitHub, Launch, AccountTree } from '@mui/icons-material';
+import { ArrowBack, GitHub, Launch, AccountTree, Article } from '@mui/icons-material';
 import Image from 'next/image';
 import Link from 'next/link';
 import Module from '../components/Module';
@@ -515,7 +515,7 @@ export function GenericFilter({
         </Typography>
       </Module>
 
-      <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mb: 4 }}>
+      <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', mb: 4, flexWrap: 'wrap' }}>
         <Button
           variant="outlined"
           startIcon={<GitHub />}
@@ -531,6 +531,14 @@ export function GenericFilter({
           target="_blank"
         >
           Frontend Code
+        </Button>
+        <Button
+          variant="outlined"
+          startIcon={<Article />}
+          component={Link}
+          href="/rpg-management-system"
+        >
+          Technical Article
         </Button>
       </Box>
     </Container>
