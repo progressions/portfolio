@@ -131,6 +131,16 @@ export default function Home() {
               • Integrated payment and shipping APIs, reducing checkout errors by 15%<br/>
               • Automated 20 hours of weekly manual processes with internal tools
             </Typography>
+            <Box sx={{ mt: 2 }}>
+              <Button
+                variant="outlined"
+                size="small"
+                startIcon={<Info />}
+                href="/babylist-survey-system"
+              >
+                Survey System Details
+              </Button>
+            </Box>
           </Module>
 
           <Module>
@@ -145,6 +155,16 @@ export default function Home() {
               • Built React-based staff app, cutting content moderation time by 35%<br/>
               • Enhanced course search with ElasticSearch, improving accuracy by 20%
             </Typography>
+            <Box sx={{ mt: 2 }}>
+              <Button
+                variant="outlined"
+                size="small"
+                startIcon={<Info />}
+                href="/teachable-bug-triage"
+              >
+                Bug Triage System Details
+              </Button>
+            </Box>
           </Module>
 
           <Module>
