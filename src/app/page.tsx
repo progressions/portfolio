@@ -159,6 +159,16 @@ export default function Home() {
               • Optimized Salesforce Marketing Cloud campaigns, raising open rates by 18%<br/>
               • Refactored legacy code, improving application performance by 15%
             </Typography>
+            <Box sx={{ mt: 2 }}>
+              <Button
+                variant="outlined"
+                size="small"
+                startIcon={<Info />}
+                href="/payment-processor"
+              >
+                Payment Processor Details
+              </Button>
+            </Box>
           </Module>
         </Box>
       </Box>
