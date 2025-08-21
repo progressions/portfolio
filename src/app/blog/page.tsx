@@ -1,12 +1,24 @@
-import { Box, Container, Button, Typography } from '@mui/material';
+import { Box, Container, Button, Typography, CircularProgress } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import { getAllBlogPosts } from '@/lib/blog';
 import Link from 'next/link';
 import BlogClient from './components/BlogClient';
+import { Suspense } from 'react';
+
+function BlogClientWrapper() {
+  const posts = getAllBlogPosts();
+  return <BlogClient posts={posts} />;
+}
+
+function LoadingFallback() {
+  return (
+    <Box sx={{ display: 'flex', justifyContent: 'center', py: 4 }}>
+      <CircularProgress />
+    </Box>
+  );
+}
 
 export default function BlogPage() {
-  const posts = getAllBlogPosts();
-
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box sx={{ mb: 3 }}>
@@ -25,7 +37,9 @@ export default function BlogPage() {
         Blog
       </Typography>
       
-      <BlogClient posts={posts} />
+      <Suspense fallback={<LoadingFallback />}>
+        <BlogClientWrapper />
+      </Suspense>
     </Container>
   );
 }
