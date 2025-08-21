@@ -303,6 +303,87 @@ export default function Home() {
             </Typography>
           </Box>
         </Module>
+
+        <Module sx={{ p: 4, position: 'relative', mt: 4 }}>
+          <Box sx={{ 
+            float: 'left', 
+            mr: 3, 
+            mb: 2,
+            '& img': {
+              display: 'block'
+            }
+          }}>
+            <Image
+              src="/diego-ph-5LOhydOtTKU-unsplash.jpg"
+              alt="Shadow Kingdom"
+              width={150}
+              height={100}
+              style={{ borderRadius: '12px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', objectFit: 'cover' }}
+            />
+          </Box>
+          
+          <Typography variant="h5" component="h3" gutterBottom color="primary">
+            Shadow Kingdom - AI-Powered Text Adventure
+          </Typography>
+          
+          <Typography variant="body1" gutterBottom sx={{ mb: 4 }}>
+            A dynamic text adventure game with AI-generated worlds, featuring region-based procedural generation and immersive exploration.
+          </Typography>
+
+          <Box sx={{ display: 'grid', gap: 4, gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' } }}>
+            <Box>
+              <Typography variant="h6" gutterBottom sx={{ mb: 2 }}>
+                Key Features
+              </Typography>
+              <Typography variant="body2">
+                • <strong>AI world generation:</strong> Grok AI creates thematically coherent regions with atmospheric room descriptions and connections<br/>
+                • <strong>Region-based exploration:</strong> Distance-based probability system ensures natural transitions between themed areas<br/>
+                • <strong>Dual navigation system:</strong> Move using cardinal directions or immersive thematic descriptions<br/>
+                • <strong>Persistent worlds:</strong> SQLite database maintains game state with visit-to-lock room consistency<br/>
+                • <strong>Session interface:</strong> Programmatic command execution for automation and testing
+              </Typography>
+            </Box>
+
+            <Box>
+              <Typography variant="h6" gutterBottom sx={{ mb: 2 }}>
+                Tech Stack
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 3 }}>
+                <strong>Runtime:</strong> Node.js + TypeScript<br/>
+                <strong>Database:</strong> SQLite with comprehensive schema<br/>
+                <strong>AI Integration:</strong> Grok API + context-aware prompting<br/>
+                <strong>Architecture:</strong> Service-oriented design + session management
+              </Typography>
+
+              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<GitHub />}
+                  href="https://github.com/progressions/shadow_kingdom"
+                  target="_blank"
+                >
+                  Source Code
+                </Button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  startIcon={<Info />}
+                  href="/shadow-kingdom"
+                >
+                  Project Details
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box sx={{ mt: 3, p: 2, backgroundColor: 'background.paper', borderRadius: 1, border: '1px solid', borderColor: 'divider' }}>
+            <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
+              Showcases advanced AI integration, procedural generation algorithms, database design for spatial relationships, 
+              and TypeScript architecture for complex interactive systems.
+            </Typography>
+          </Box>
+        </Module>
       </Box>
     </Container>
   );
