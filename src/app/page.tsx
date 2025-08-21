@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Typography, Box, Button, Avatar } from '@mui/material';
-import { GitHub, LinkedIn, Email, Person, Build, Code, ContactMail, Work, AccountTree, Article, Info } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email, Person, Build, Code, ContactMail, Work, AccountTree, Article, Info, Article as BlogIcon } from '@mui/icons-material';
 import Image from 'next/image';
 import Module from './components/Module';
 
@@ -47,6 +47,13 @@ export default function Home() {
             href="mailto:progressions@gmail.com"
           >
             Contact
+          </Button>
+          <Button
+            variant="outlined"
+            startIcon={<BlogIcon />}
+            href="/blog"
+          >
+            Blog
           </Button>
           <Button
             variant="contained"
