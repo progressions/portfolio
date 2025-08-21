@@ -103,7 +103,11 @@ export default function Home() {
             <strong>Chi War RPG Management System:</strong><br/>
             • <a href="https://github.com/progressions/shot-counter" target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>Backend (shot-counter)</a> - Ruby on Rails API server<br/>
             • <a href="https://github.com/progressions/shot-client-next" target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>Frontend (shot-client-next)</a> - Next.js TypeScript client<br/>
-            Full-stack app for managing Feng Shui 2 RPG games.
+            Full-stack app for managing Feng Shui 2 RPG games.<br/><br/>
+            
+            <strong>Shadow Kingdom Text Adventure:</strong><br/>
+            • <a href="https://github.com/progressions/shadow_kingdom" target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>Source Code</a> - Node.js + TypeScript + SQLite<br/>
+            AI-powered text adventure with procedural world generation.
           </Typography>
         </Module>
 
