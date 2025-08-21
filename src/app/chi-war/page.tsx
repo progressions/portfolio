@@ -122,13 +122,13 @@ export default function ChiWarPage() {
           for players who might not understand the underlying mathematics.
         </Typography>
 
-        <Box sx={{ my: 4 }}>
+        <Box sx={{ my: 4, textAlign: 'center' }}>
           <Image
             src="/chi-war-fight-detail.png"
             alt="Chi War Fight Detail"
             width={600}
             height={400}
-            style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', display: 'block', mx: 'auto' }}
+            style={{ width: '100%', maxWidth: '600px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', display: 'block', margin: '0 auto' }}
           />
           <Typography variant="caption" display="block" sx={{ mt: 1, textAlign: 'center', fontStyle: 'italic' }}>
             Fight detail page with cinematic background and start fight interface
@@ -344,7 +344,7 @@ export function GenericFilter({
             alt="Chi War Character Selection with Generic Filters"
             width={800}
             height={600}
-            style={{ width: '100%', maxWidth: '800px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', display: 'block', mx: 'auto' }}
+            style={{ width: '100%', maxWidth: '800px', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', display: 'block', margin: '0 auto' }}
           />
           <Typography variant="caption" display="block" sx={{ mt: 1, textAlign: 'center', fontStyle: 'italic' }}>
             Character selection modal demonstrating the GenericFilter system with multiple filter types working together
