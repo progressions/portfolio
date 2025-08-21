@@ -57,7 +57,8 @@ export default function ShadowKingdomPage() {
           <Button
             variant="outlined"
             startIcon={<PlayArrow />}
-            href="#installation"
+            href="https://github.com/progressions/shadow_kingdom#installation"
+            target="_blank"
           >
             Get Started
           </Button>
@@ -202,48 +203,19 @@ export default function ShadowKingdomPage() {
       </Module>
 
       <Module sx={{ p: 4, mb: 4 }}>
-        <Typography variant="h4" gutterBottom id="installation">
-          Getting Started
+        <Typography variant="h4" gutterBottom>
+          Gameplay Experience
         </Typography>
 
         <Typography variant="body1" paragraph>
-          Shadow Kingdom requires Node.js and a Grok API key to run. The setup process is straightforward 
-          and gets you exploring mysterious kingdoms in minutes.
+          Shadow Kingdom creates immersive text-based adventures through AI-generated content. 
+          Each exploration reveals atmospheric descriptions, thematic connections, and coherent 
+          world-building that adapts to player choices.
         </Typography>
 
         <Box sx={{ mb: 4 }}>
           <Typography variant="h6" gutterBottom>
-            Installation
-          </Typography>
-          <Box component="pre" sx={{ 
-            backgroundColor: 'grey.900', 
-            color: 'common.white', 
-            p: 2, 
-            borderRadius: 1, 
-            overflow: 'auto',
-            fontSize: '0.875rem',
-            fontFamily: 'monospace'
-          }}>
-{`# Clone the repository
-git clone https://github.com/progressions/shadow_kingdom.git
-cd shadow_kingdom
-
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your Grok API key
-
-# Build and start
-npm run build
-npm start`}
-          </Box>
-        </Box>
-
-        <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" gutterBottom>
-            Example Gameplay
+            Example Adventure
           </Typography>
           <Box component="pre" sx={{ 
             backgroundColor: 'background.paper', 
@@ -284,12 +256,12 @@ Center room: Grand Entrance Hall
 
         <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
           <Button
-            variant="outlined"
+            variant="contained"
             startIcon={<GitHub />}
-            href="https://github.com/progressions/shadow_kingdom#installation"
+            href="https://github.com/progressions/shadow_kingdom"
             target="_blank"
           >
-            Full Setup Guide
+            View Source Code
           </Button>
           <Button
             variant="outlined"
@@ -297,7 +269,7 @@ Center room: Grand Entrance Hall
             href="https://github.com/progressions/shadow_kingdom#api-reference"
             target="_blank"
           >
-            API Reference
+            Documentation
           </Button>
         </Box>
       </Module>
