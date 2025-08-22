@@ -318,11 +318,11 @@ export default function Home() {
             }
           }}>
             <Image
-              src="/diego-ph-5LOhydOtTKU-unsplash.jpg"
+              src="/shadowkingdom.jpg"
               alt="Shadow Kingdom"
               width={150}
               height={100}
-              style={{ borderRadius: '12px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', objectFit: 'cover' }}
+              style={{ borderRadius: '12px', boxShadow: '0 4px 8px rgba(0,0,0,0.3)', objectFit: 'cover', objectPosition: 'center top' }}
             />
           </Box>
           
