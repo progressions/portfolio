@@ -35,7 +35,7 @@ npm run mcp:playwright
 - **Fonts**: Geist Sans and Geist Mono (Google Fonts)
 - **Styling**: Material UI's sx prop and theme system with dark mode
 - **Content**: Markdown-based blog posts with gray-matter frontmatter parsing
-- **Port**: Development server runs on port 3003 (not standard 3000)
+- **Port**: Development server runs on port 3006 (not standard 3000)
 
 ## Project Structure
 
