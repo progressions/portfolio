@@ -62,6 +62,7 @@ npm run mcp:playwright
 - **Content**: Markdown files in `src/content/blog/` with frontmatter for title, date, excerpt, and tags
 - **Dynamic routing**: `blog/[slug]/page.tsx` for individual posts
 - **Filtering**: Real-time search, tag filtering, and sorting functionality
+- **Date Format**: Use `"YYYY-MM-DDTHH:MM:SS"` format (e.g., `"2025-08-23T12:00:00"`) in frontmatter to avoid timezone conversion issues that cause dates to display incorrectly
 
 ### Component Organization
 - Blog filtering components in `src/app/blog/components/`
