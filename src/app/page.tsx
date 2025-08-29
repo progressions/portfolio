@@ -135,7 +135,7 @@ export default function Home() {
               Babylist, Inc
             </Typography>
             <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-              Senior Software Engineer | Apr 2024 - Nov 2024
+              Senior Software Engineer | Apr 2023 - Nov 2024
             </Typography>
             <Typography variant="body2">
               • Built RESTful APIs for 1M+ user e-commerce platform, improving response time by 30%<br/>
