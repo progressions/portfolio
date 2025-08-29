@@ -11,7 +11,7 @@ When building the Chi War RPG management application, I encountered one of those
 
 ## The Problem: More Than Just DELETE FROM table
 
-In a typical web application, deletion seems straightforward. Call `destroy` on an Active Record model, return a success response, and move on. But RPG management systems have intricate relationships between entities. A campaign contains characters, fights, weapons, vehicles, factions, and sites. Characters can carry weapons from other campaigns. Schticks form prerequisite hierarchies. Users can own multiple campaigns while being members of others.
+In a typical web application, deletion seems straightforward. Call `destroy` on an Active Record model, return a success response, and move on. But RPG management systems have intricate relationships between entities. A campaign contains characters, fights, weapons, vehicles, factions, and sites. Characters can carry weapons, equip armor, and belong to parties. Schticks form prerequisite hierarchies. Users can own multiple campaigns while being members of others.
 
 The naive approach fails spectacularly when you try to delete a campaign that has associated records:
 
@@ -134,14 +134,11 @@ class CampaignDeletionService < EntityDeletionService
 
   def clear_join_tables(campaign)
     character_ids = campaign.characters.pluck(:id)
-    weapon_ids = campaign.weapons.pluck(:id)
     party_ids = campaign.parties.pluck(:id)
 
-    # Handle cross-campaign relationships
-    if character_ids.any? || weapon_ids.any?
-      Carry.where(character_id: character_ids)
-          .or(Carry.where(weapon_id: weapon_ids))
-          .delete_all
+    # Clear character relationships within this campaign
+    if character_ids.any?
+      Carry.where(character_id: character_ids).delete_all
     end
 
     CampaignMembership.where(campaign_id: campaign.id).delete_all
@@ -153,7 +150,7 @@ class CampaignDeletionService < EntityDeletionService
 end
 ```
 
-The most challenging aspect here is handling cross-campaign relationships. A weapon created in Campaign A might be carried by a character in Campaign B. Deleting Campaign A requires cleaning up these relationships across campaign boundaries.
+The most challenging aspect here is handling the complex web of relationships within a campaign. Characters can carry weapons, belong to parties, have schticks, and participate in fights - all of which need to be cleaned up in the proper order to avoid constraint violations.
 
 #### UserDeletionService: Preservation Strategy
 
@@ -241,46 +238,46 @@ This produces messages like "5 characters, 2 active fights, and 3 weapons" inste
 
 ## Major Challenges and Solutions
 
-### Challenge 1: Cross-Campaign Weapon Relationships
+### Challenge 1: Join Table Dependencies
 
-The application allows weapons to be shared across campaigns, creating complex dependency webs. A weapon from Campaign A might be carried by characters in Campaigns B and C. Deleting any of these campaigns requires careful handling of these relationships.
+Campaigns have complex many-to-many relationships through join tables. Characters belong to parties, carry weapons, have schticks, and participate in fights. These join tables create circular dependencies that must be handled carefully.
 
-**Solution**: Query for all related records regardless of campaign boundaries and clean them up systematically:
+**Solution**: Clear join table relationships first, then delete the entities themselves:
 
 ```ruby
-# Find all weapons and characters in this campaign
+# Find all related entity IDs in this campaign
 character_ids = campaign.characters.pluck(:id)
-weapon_ids = campaign.weapons.pluck(:id)
+party_ids = campaign.parties.pluck(:id)
 
-# Delete ALL carries involving these characters OR these weapons
-if character_ids.any? || weapon_ids.any?
-  Carry.where(character_id: character_ids)
-      .or(Carry.where(weapon_id: weapon_ids))
-      .delete_all
+# Clear all join table relationships first
+if character_ids.any?
+  Carry.where(character_id: character_ids).delete_all
+  CharacterSchtick.where(character_id: character_ids).delete_all
 end
 ```
 
-### Challenge 2: Circular Dependencies in Join Tables
+### Challenge 2: Deletion Order Dependencies
 
-Many-to-many relationships through join tables create circular dependencies. Characters belong to parties, parties belong to campaigns, but characters also belong to campaigns directly.
+When deleting a campaign with hundreds of associated records, the order of deletion matters. Foreign key constraints prevent deleting entities that are still referenced by other records.
 
-**Solution**: Delete join table records first, then the entities themselves in dependency order:
+**Solution**: Follow a systematic deletion order - join tables first, then dependent entities in reverse dependency order:
 
 ```ruby
-def clear_join_tables(campaign)
-  # Clear all join table relationships first
-  CampaignMembership.where(campaign_id: campaign.id).delete_all
-  Membership.where(party_id: party_ids).delete_all
-  CharacterSchtick.where(character_id: character_ids).delete_all
-  
-  # Now safe to delete the entities themselves
-  delete_campaign_entities(campaign)
+def delete_campaign_entities(campaign)
+  # Delete in reverse dependency order
+  campaign.fights.destroy_all
+  campaign.sites.destroy_all
+  campaign.factions.destroy_all
+  campaign.parties.destroy_all
+  campaign.weapons.destroy_all
+  campaign.vehicles.destroy_all  
+  campaign.characters.destroy_all
 end
 ```
 
 ### Challenge 3: Database vs. Application-Level Cascading
 
-Rails' `dependent: :destroy` works well for simple cases, but complex scenarios require more control. Some relationships need nullification rather than deletion, others need cross-table cleanup that Rails can't handle automatically.
+Rails' `dependent: :destroy` works well for simple cases, but complex scenarios require more control. Some relationships need nullification rather than deletion, and join table cleanup must happen before entity deletion to avoid constraint violations.
 
 **Solution**: Use `entity.destroy!` in the service but handle associations manually before calling destroy. This gets the benefits of Rails callbacks and validations while maintaining precise control over the deletion cascade.
 
