@@ -3,7 +3,7 @@ title: "Building Emotional Depth: Implementing the Character Sentiment System in
 date: "2025-08-23"
 slug: "character-sentiment-system"
 excerpt: "I recently completed implementation of a comprehensive Character Sentiment System in Shadow Kingdom that replaces simple binary character states with a nuanced emotional relationship system."
-tags: ["Game Development", "AI", "Character Systems", "Shadow Kingdom", "TypeScript", "Test-Driven Development"]
+tags: ["Game Development", "AI & Machine Learning", "TypeScript", "Testing & Debugging"]
 ---
 
 # Building Emotional Depth: Implementing the Character Sentiment System in Shadow Kingdom

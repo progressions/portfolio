@@ -3,7 +3,7 @@ title: "Building an AI-Powered Region-Based World Generation System"
 date: "2025-08-24T12:00:00"
 slug: "region-based-world-generation-system"
 excerpt: "Transform random room generation into coherent world building with AI-driven regional themes, spatial consistency, and simplified architecture. From phantom connections to thematic coherence in Shadow Kingdom's exploration system."
-tags: ["AI", "Game Development", "World Generation", "TypeScript", "System Architecture", "Procedural Generation"]
+tags: ["AI & Machine Learning", "Game Development", "TypeScript", "System Architecture"]
 ---
 
 # Building an AI-Powered Region-Based World Generation System

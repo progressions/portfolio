@@ -3,7 +3,7 @@ title: "Welcome to My Blog"
 date: "2025-01-15"
 slug: "introduction-to-my-blog"
 excerpt: "An introduction to my personal blog where I'll share insights about software development, technology trends, and my journey as a developer."
-tags: ["introduction", "personal", "development"]
+tags: ["Personal"]
 ---
 
 # Welcome to My Blog

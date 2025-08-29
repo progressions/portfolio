@@ -3,7 +3,7 @@ title: "Debugging Production Issues: A Systematic Approach"
 date: "2025-01-25"
 slug: "debugging-production-issues"
 excerpt: "A comprehensive guide to effectively debugging issues in production environments, including tools, techniques, and preventive measures."
-tags: ["debugging", "production", "monitoring", "troubleshooting"]
+tags: ["Testing & Debugging"]
 ---
 
 # Debugging Production Issues: A Systematic Approach

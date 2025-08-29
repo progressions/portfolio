@@ -2,7 +2,7 @@
 title: "Building a Robust Entity Deletion System: Lessons from Complex Database Relationships"
 date: "2025-08-29T12:00:00"
 excerpt: "What started as basic CRUD operations evolved into a sophisticated unified deletion system capable of handling complex database relationships while maintaining data integrity in the Chi War RPG management application."
-tags: ["Ruby on Rails", "Database Design", "System Architecture", "CRUD Operations", "Data Integrity", "Template Method Pattern"]
+tags: ["Web Development", "System Architecture", "Game Development"]
 ---
 
 # Building a Robust Entity Deletion System: Lessons from Complex Database Relationships

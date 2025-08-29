@@ -3,7 +3,7 @@ title: "Building Scalable Next.js Applications"
 date: "2025-01-20"
 slug: "building-scalable-nextjs-applications"
 excerpt: "Best practices and architectural patterns for building maintainable Next.js applications that can grow with your team and user base."
-tags: ["Next.js", "React", "architecture", "scalability"]
+tags: ["Web Development", "System Architecture"]
 ---
 
 # Building Scalable Next.js Applications

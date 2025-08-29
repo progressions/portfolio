@@ -3,7 +3,7 @@ title: "Breaking Down Language Barriers: Shadow Kingdom's AI Command Parsing Fal
 date: "2025-08-22"
 slug: "ai-command-parsing-fallback-system"
 excerpt: "How I solved the natural language problem in text adventures with a three-tier AI parsing system that makes Shadow Kingdom feel like a conversation with an intelligent dungeon master."
-tags: ["AI", "Natural Language Processing", "Game Development", "Shadow Kingdom", "TypeScript", "User Experience"]
+tags: ["AI & Machine Learning", "Game Development", "TypeScript"]
 ---
 
 # Breaking Down Language Barriers: Shadow Kingdom's AI Command Parsing Fallback System

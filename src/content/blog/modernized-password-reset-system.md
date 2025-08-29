@@ -3,7 +3,7 @@ title: "Modernizing User Authentication: A Secure Password Reset System"
 date: "2025-08-21"
 slug: "modernized-password-reset-system"
 excerpt: "Building a modern, secure password reset system that prioritizes both security and user experience using Rails 8.0 and Next.js 15."
-tags: ["authentication", "security", "Rails", "Next.js", "UX", "Chi War"]
+tags: ["Web Development", "Security", "Game Development"]
 ---
 
 # Modernizing User Authentication: A Secure Password Reset System
