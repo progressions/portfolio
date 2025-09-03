@@ -2,7 +2,7 @@
 title: "Building a Real-Time Encounter Manager for Feng Shui 2"
 date: "2025-09-03T10:00:00"
 excerpt: "Deep dive into developing a real-time encounter management system for Chi War, handling complex initiative mechanics, vehicle chases, and WebSocket synchronization for the Feng Shui 2 tabletop RPG."
-tags: ["chi-war", "rails", "react", "websockets", "game-development", "real-time"]
+tags: ["Game Development", "System Architecture", "Web Development"]
 ---
 
 # Building a Real-Time Encounter Manager for Feng Shui 2
