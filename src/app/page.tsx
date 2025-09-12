@@ -57,7 +57,7 @@ export default function Home() {
           </Button>
           <Button
             variant="contained"
-            href="/IsaacPriestleyResumeRailsAug2025.pdf"
+            href="/IsaacPriestleyResumeRailsSep2025.pdf"
             target="_blank"
             download
           >
