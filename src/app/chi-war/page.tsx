@@ -519,7 +519,7 @@ export function GenericFilter({
         <Button
           variant="outlined"
           startIcon={<GitHub />}
-          href="https://github.com/progressions/shot-counter"
+          href="https://github.com/progressions/shot-elixir"
           target="_blank"
         >
           Backend Code
