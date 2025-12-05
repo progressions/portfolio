@@ -86,8 +86,8 @@ export default function Home() {
             Skills
           </Typography>
           <Typography variant="body2">
-            <strong>Languages:</strong> Ruby, JavaScript, TypeScript, CSS/SCSS, SQL<br/>
-            <strong>Frameworks:</strong> Ruby on Rails (6+), React, Next.js, Material UI<br/>
+            <strong>Languages:</strong> Ruby, Elixir, JavaScript, TypeScript, CSS/SCSS, SQL<br/>
+            <strong>Frameworks:</strong> Ruby on Rails, Phoenix, React, Next.js, Material UI<br/>
             <strong>Tools:</strong> PostgreSQL, MySQL, Git, Docker, ElasticSearch<br/>
             <strong>AI Integration:</strong> Grok API, prompt engineering, content generation<br/>
             <strong>Methodologies:</strong> Agile, TDD, CI/CD, RESTful API design
@@ -101,7 +101,7 @@ export default function Home() {
           </Typography>
           <Typography variant="body2">
             <strong>Chi War RPG Management System:</strong><br/>
-            • <a href="https://github.com/progressions/shot-counter" target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>Backend (shot-counter)</a> - Ruby on Rails API server<br/>
+            • <a href="https://github.com/progressions/shot-elixir" target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>Backend (shot-elixir)</a> - Elixir/Phoenix API server<br/>
             • <a href="https://github.com/progressions/shot-client-next" target="_blank" rel="noopener noreferrer" style={{ color: '#90caf9' }}>Frontend (shot-client-next)</a> - Next.js TypeScript client<br/>
             Full-stack app for managing Feng Shui 2 RPG games.<br/><br/>
             
@@ -130,6 +130,30 @@ export default function Home() {
         </Typography>
         
         <Box sx={{ display: 'grid', gap: 4, gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr 1fr' } }}>
+          <Module>
+            <Typography variant="h6" component="h3" gutterBottom color="primary">
+              Hatch
+            </Typography>
+            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+              Software Engineer | Oct 2025 - Present
+            </Typography>
+            <Typography variant="body2">
+              • Building integrations on the Data Bridge team for AI CSR platform serving 2,000+ home service businesses<br/>
+              • Maintaining native ServiceTitan integration (Elixir) with bidirectional sync and real-time event streaming<br/>
+              • Developing Prismatic-powered integration marketplace, reducing onboarding time by 10 days
+            </Typography>
+            <Box sx={{ mt: 2 }}>
+              <Button
+                variant="outlined"
+                size="small"
+                startIcon={<Article />}
+                href="/blog/2025-10-05-joining-hatch-data-bridge-team"
+              >
+                Read More
+              </Button>
+            </Box>
+          </Module>
+
           <Module>
             <Typography variant="h6" component="h3" gutterBottom color="primary">
               Babylist, Inc
@@ -174,30 +198,6 @@ export default function Home() {
                 href="/teachable-bug-triage"
               >
                 Bug Triage System Details
-              </Button>
-            </Box>
-          </Module>
-
-          <Module>
-            <Typography variant="h6" component="h3" gutterBottom color="primary">
-              The Honest Company
-            </Typography>
-            <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-              Senior Software Engineer | Aug 2015 - Sep 2017
-            </Typography>
-            <Typography variant="body2">
-              • Developed Rails-based payments API, processing $5M+ monthly with zero downtime<br/>
-              • Optimized Salesforce Marketing Cloud campaigns, raising open rates by 18%<br/>
-              • Refactored legacy code, improving application performance by 15%
-            </Typography>
-            <Box sx={{ mt: 2 }}>
-              <Button
-                variant="outlined"
-                size="small"
-                startIcon={<Info />}
-                href="/payment-processor"
-              >
-                Payment Processor Details
               </Button>
             </Box>
           </Module>
@@ -255,7 +255,7 @@ export default function Home() {
                 Tech Stack
               </Typography>
               <Typography variant="body2" sx={{ mb: 3 }}>
-                <strong>Backend:</strong> Ruby on Rails + WebSockets + Grok API<br/>
+                <strong>Backend:</strong> Elixir/Phoenix + WebSockets + Grok API<br/>
                 <strong>Frontend:</strong> Next.js + TypeScript + Material UI<br/>
                 <strong>Database:</strong> PostgreSQL<br/>
                 <strong>AI Integration:</strong> Prompt engineering + content generation
@@ -266,7 +266,7 @@ export default function Home() {
                   variant="outlined"
                   size="small"
                   startIcon={<GitHub />}
-                  href="https://github.com/progressions/shot-counter"
+                  href="https://github.com/progressions/shot-elixir"
                   target="_blank"
                 >
                   Backend Code
