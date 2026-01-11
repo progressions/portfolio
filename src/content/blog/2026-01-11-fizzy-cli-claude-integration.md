@@ -13,7 +13,7 @@ tags: ["cli", "javascript", "ai", "productivity"]
 
 ## Background
 
-[Fizzy](https://fizzy.pm) is a kanban board tool from Basecamp. When it launched, the team exposed a straightforward REST API with clear documentation. The endpoints followed predictable patterns: `/boards`, `/cards`, `/comments`. Authentication was a bearer token. No OAuth dance, no complex scopes—just request an API key from your profile and start making requests.
+[Fizzy](https://fizzy.pm) is a kanban board tool from Basecamp. When it launched, DHH [added a basic API](https://github.com/basecamp/fizzy/pull/1766) and Jason Fried [announced on X](https://x.com/jasonfried/status/1998812494455062936) that it opened up integration opportunities. The team exposed a straightforward REST API with [clear documentation](https://github.com/basecamp/fizzy/blob/main/docs/API.md). The endpoints followed predictable patterns: `/boards`, `/cards`, `/comments`. Authentication was a bearer token. No OAuth dance, no complex scopes—just request an API key from your profile and start making requests.
 
 This simplicity made it an ideal candidate for a CLI wrapper.
 
